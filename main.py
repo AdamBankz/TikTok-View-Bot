@@ -81,7 +81,7 @@ def view(video):
         pass
 
 while True:
-    if threading.active_count() < 10: # don't put too high lmao I warned you
+    if threading.active_count() < 1500: # don't put too high lmao I warned you
         threading.Thread(
             target = view, 
             args = [
