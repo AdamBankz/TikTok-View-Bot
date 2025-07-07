@@ -36,8 +36,7 @@ def view(video):
             "cp": "androide1",
         })
 
-        # Choose a random proxy for this request
-        proxy = random.choice(proxy_pool)
+
 
         response = requests.post(
             url=f"https://{host}/aweme/v1/aweme/stats?{params}",
