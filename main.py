@@ -4,29 +4,7 @@ VIDEO = "6930717658832833798"
 IID = "7522059562116957969"
 DID = "7522057963538187792"
 
-# Proxy list (IP:PORT:USER:PASS)
-raw_proxies = [
-    "38.154.227.167:5868:nezhargz:8b4wnhvvbo7z",
-    "198.23.239.134:6540:nezhargz:8b4wnhvvbo7z",
-    "207.244.217.165:6712:nezhargz:8b4wnhvvbo7z",
-    "107.172.163.27:6543:nezhargz:8b4wnhvvbo7z",
-    "216.10.27.159:6837:nezhargz:8b4wnhvvbo7z",
-    "136.0.207.84:6661:nezhargz:8b4wnhvvbo7z",
-    "64.64.118.149:6732:nezhargz:8b4wnhvvbo7z",
-    "142.147.128.93:6593:nezhargz:8b4wnhvvbo7z",
-    "104.239.105.125:6655:nezhargz:8b4wnhvvbo7z",
-    "206.41.172.74:6634:nezhargz:8b4wnhvvbo7z"
-]
 
-# Convert to proxy dicts for requests
-proxy_pool = [
-    {
-        "http": f"http://{user}:{pwd}@{ip}:{port}",
-        "https": f"http://{user}:{pwd}@{ip}:{port}"
-    }
-    for entry in raw_proxies
-    for ip, port, user, pwd in [entry.split(":")]
-]
 
 def view(video):
     try:
@@ -79,8 +57,6 @@ def view(video):
                 "content-type": "application/x-www-form-urlencoded; charset=UTF-8",
                 "user-agent": f"com.ss.android.ugc.trill/{version} (Linux; U; Android 11; fr_FR; {device}; Build/RP1A.200720.012; Cronet/58.0.2991.0)"
             },
-            proxies=proxy,
-            timeout=10
         )
 
         print(response.json())
